@@ -35,7 +35,8 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Map<Integer, List<Employee>> getGroupedByDepartmentEmployees(Integer departmentId) {
+    public Map<Integer, List<Employee>> getGroupedByDepartmentEmployees() {
+        Integer departmentId = null;
         return employeeService.getEmployees().values().stream()
                 .filter(employee -> departmentId == null || employee.getDepartment().equals(departmentId))
                 .collect(Collectors.groupingBy(Employee::getDepartment));

@@ -31,6 +31,6 @@ public class DepartmentController {
     public Map<Integer, List<Employee>> getGroupedByDepartmentEmployees(
             @RequestParam(name = "departmentId", required = false)Integer departmentId
     ) {
-        return departmentService.getGroupedByDepartmentEmployees(departmentId);
+        return departmentService.getGroupedByDepartmentEmployees();
     }
 }

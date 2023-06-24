@@ -10,6 +10,6 @@ public interface DepartmentService {
     Employee getEmployeeWithMaxSalary(Integer departmentId);
     Employee getEmployeeWithMinSalary(Integer departmentId);
 
-    Map<Integer, List<Employee>> getGroupedByDepartmentEmployees(Integer departmentId);
+    Map<Integer, List<Employee>> getGroupedByDepartmentEmployees();
 
 }
