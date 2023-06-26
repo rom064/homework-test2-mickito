@@ -51,7 +51,7 @@ class DepartmentServiceImplTest {
 
         Employee employeeWithMaxSalary = departmentService.getEmployeeWithMaxSalary(departmentId);
 
-        assertEquals(employees.get(1), employeeWithMaxSalary);
+        assertEquals(employees.get(2), employeeWithMaxSalary);
 
     }
 
@@ -78,14 +78,13 @@ class DepartmentServiceImplTest {
 
         final Map<String, Employee> employeeMap = new HashMap<>();
         for (int i = 0; i < employees.size(); i++) {
-            employeeMap.put(employees.get(i).getFirstName() + employees.get(i).getLastName(), employees.get(i));
+            employeeMap.put(String.valueOf(employees.get(i).getDepartment()), employees.get(i));
         }
-        when(employeeService.getEmployees()).thenReturn(employeeMap);
+            when(employeeService.getEmployees()).thenReturn(employeeMap);
 
-        Map<Integer, List<Employee>> groupedByDepartmentEmployees = departmentService.getGroupedByDepartmentEmployees();
+       Map<Integer, List<Employee>> groupedByDepartmentEmployees = departmentService.getGroupedByDepartmentEmployees();
+
         assertEquals(employeeMap, groupedByDepartmentEmployees);
-        Comparator<Employee> calculateSum = Comparator.comparingInt(Employee::getSalary);
-        System.out.println(calculateSum);
 
     }
 }
